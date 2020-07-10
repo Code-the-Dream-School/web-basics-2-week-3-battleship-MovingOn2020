@@ -1,4 +1,5 @@
 const battleship = () => {
+  console.log('Hello world')
 //I am assigning the player #1 a name of the World War II AXIS battlehsip from Japan.
   const Yamato = {
     name: prompt ('Player #1 Your Name is Yamato Battleship'),
@@ -57,29 +58,29 @@ let playerInTurn = Yamato;
 let message;
   while (true) {
     if (playerInTurn === Yamato){
-      let hitX = +prompt(`Yamato, enter X coordinates between number 0-3 ${playerInTurn.name}`)
-      let hitY = +prompt(`Yamato, enter X coordinates between number 0-3 ${playerInTurn.name}`)
-        if ( Bismarck.gameboard[hitX] [hitY] === 1 ){
-          Bismarck.gameBoard[hitX] [hitY] = 0;
+      let hitX = parseInt(prompt(`Yamato, enter X coordinates between number 0-3 ${playerInTurn.name}`))
+      let hitY = parseInt(prompt(`Yamato, enter Y coordinates between number 0-3 ${playerInTurn.name}`))
+        if ( Bismarck.gameBoard [hitX][hitY] === 1 ) {
+          Bismarck.gameBoard [hitX][hitY] = 0;
           Bismarck.shipCount -= 1;
           alert (`HIT!`);
-          if (Bismarck.shipCount = 0) {
+          if (Bismarck.shipCount == 0) {
             alert(`Yamato! Congratulations, you sunk Bismarck's Fleet!`)
             break;
           }
         } else {
           alert(`You missed!`)
         }
-
+      }
         playerInTurn = Bismarck;
           if (playerInTurn === Bismarck) {
-            let hitX = +prompt(`Yamato, enter X coordinates between number 0-3 ${playerInTurn.name}`)
-            let hitY = +prompt(`Yamato, enter X coordinates between number 0-3 ${playerInTurn.name}`)
-              if ( Yamato.gameboard[hitX] [hitY] === 1 ){
-                Yamato.gameBoard[hitX] [hitY] = 0;
+            let hitX = parseInt(prompt(`Bismarck, enter X coordinates between number 0-3 ${playerInTurn.name}`))
+            let hitY = parseInt(prompt(`Bismarck, enter Y coordinates between number 0-3 ${playerInTurn.name}`))
+              if ( Yamato.gameBoard[hitX][hitY] === 1 ){
+                Yamato.gameBoard[hitX][hitY] = 0;
                 Yamato.shipCount -= 1;
                 alert (`HIT!`);
-                if (Yamato.shipCount = 0) {
+                if (Yamato.shipCount == 0) {
                   alert(`Bismarck! Congratulations, you sunk Yamato's Fleet!`)
                   break;
                 }
@@ -88,7 +89,8 @@ let message;
               }
               playerInTurn = Yamato;
             }
-console.log(playerInTurn.name)
+showBoard(Yamato)
+showBoard(Bismarck)
 
   function showBoard(player) {
     console.log(player.name);
@@ -97,6 +99,7 @@ console.log(playerInTurn.name)
     }
   }
 }
+  }
 const gameResult = battleship()
 const htmlTarget = document.getElementById('result')
 htmlTarget.innerHTML = gameResult
